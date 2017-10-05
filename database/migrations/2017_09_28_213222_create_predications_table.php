@@ -14,7 +14,7 @@ class CreatePredicationsTable extends Migration
     public function up()
     {
         Schema::create('predications', function (Blueprint $table) {
-            $table->increments('id',11);
+            $table->increments('id');
             $table->integer('fest_id')->index();
             $table->integer('book_id')->index();
             $table->integer('chapter')->index();
@@ -25,9 +25,6 @@ class CreatePredicationsTable extends Migration
             $table->mediumText('evangelization')->collate('utf8_general_mysql_500_ci');
             $table->date('written_at');
             $table->timestamps();
-
-            $table->foreign('fest_id')->references('id')->on('fests');
-            $table->foreign('book_id')->references('id')->on('books');
           });
     }
 
