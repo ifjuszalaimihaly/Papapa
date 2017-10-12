@@ -25,6 +25,7 @@ class CreatePredicationsTable extends Migration
             $table->char('versicle_end_letter',1)->nullable();
             $table->mediumText('evangelization')->collation('utf8_general_mysql500_ci');
             $table->boolean('visible')->default(false);
+            $table->string('slug',100)->unique();
             $table->timestamps();
           });
     }
