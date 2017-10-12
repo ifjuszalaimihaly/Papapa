@@ -14,16 +14,17 @@ class CreatePredicationsTable extends Migration
     public function up()
     {
         Schema::create('predications', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('fest_id')->index();
-            $table->integer('book_id')->index();
-            $table->integer('chapter')->index();
-            $table->integer('versicle_begin');
-            $table->integer('versicle_end');
+            $table->collation = 'utf8_general_mysql500_ci';
+            $table->charset = 'utf8';
+            $table->mediumIncrements('id');
+            $table->unsignedSmallInteger('book_id');
+            $table->unsignedSmallInteger('chapter');
+            $table->unsignedSmallInteger('versicle_begin');
+            $table->unsignedSmallInteger('versicle_end');
             $table->char('versicle_begin_letter',1)->nullable();
             $table->char('versicle_end_letter',1)->nullable();
-            $table->mediumText('evangelization')->collate('utf8_general_mysql_500_ci');
-            $table->date('written_at');
+            $table->mediumText('evangelization')->collation('utf8_general_mysql500_ci');
+            $table->boolean('visible')->default(false);
             $table->timestamps();
           });
     }

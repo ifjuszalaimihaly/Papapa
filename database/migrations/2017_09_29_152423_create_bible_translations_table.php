@@ -14,8 +14,11 @@ class CreateBibleTranslationsTable extends Migration
     public function up()
     {
         Schema::create('bible_translations', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('bible_translation_name');
+            $table->collation = 'utf8_general_mysql500_ci';
+            $table->charset = 'utf8';
+            $table->smallIncrements('id');
+            $table->string('bible_translation_short',10)->collation('utf8_general_mysql500_ci');
+            $table->string('bible_translation_name',100)->collation('utf8_general_mysql500_ci');
             $table->timestamps();
         });
     }

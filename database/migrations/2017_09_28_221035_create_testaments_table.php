@@ -14,8 +14,10 @@ class CreateTestamentsTable extends Migration
     public function up()
     {
         Schema::create('testaments', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('testament_name', 25)->collate('utf8_general_mysql_500_ci');
+            $table->collation = 'utf8_general_mysql500_ci';
+            $table->charset = 'utf8';
+            $table->tinyIncrements('id');
+            $table->string('testament_name', 25)->collation('utf8_general_mysql500_ci');
             $table->timestamps();
         });
     }

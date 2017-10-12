@@ -14,10 +14,12 @@ class CreateBooksTable extends Migration
     public function up()
     {
         Schema::create('books', function (Blueprint $table) {
-            $table->increments('id',11);
-            $table->integer('testament_id')->index();
-            $table->string('book_name', 50)->collate('utf8_general_mysql_500_ci');
-            $table->string('book_name_short', 15)->collate('utf8_general_mysql_500_ci');
+            $table->collation = 'utf8_general_mysql500_ci';
+            $table->charset = 'utf8';
+            $table->smallIncrements('id',true);
+            $table->unsignedTinyInteger('testament_id');
+            $table->string('book_name', 50)->collation('utf8_general_mysql500_ci');
+            $table->string('book_name_short', 15)->collation('utf8_general_mysql500_ci');
             $table->timestamps();
         });
     }

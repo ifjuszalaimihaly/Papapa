@@ -14,11 +14,13 @@ class CreateBookContentsTable extends Migration
     public function up()
     {
         Schema::create('book_contents', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('book_id');
-            $table->integer('bible_traslation_id');
-            $table->integer('chapter');
-            $table->mediumText('versicle');
+            $table->collation = 'utf8_general_mysql500_ci';
+            $table->charset = 'utf8';
+            $table->mediumIncrements('id');
+            $table->unsignedSmallInteger('book_id');
+            $table->unsignedSmallInteger('bible_translation_id');
+            $table->unsignedSmallInteger('chapter');
+            $table->mediumText('versicle')->collation('utf8_general_mysql500_ci');
             $table->timestamps();
         });
     }

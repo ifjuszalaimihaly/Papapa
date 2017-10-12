@@ -14,9 +14,11 @@ class CreateTagsTable extends Migration
     public function up()
     {
         Schema::create('tags', function (Blueprint $table) {
-            $table->increments('id',11);
-            $table->string('category',25)->collate('utf8_general_mysql_500_ci');
-            $table->string('tag_name')->collate('utf8_general_mysql_500_ci');
+            $table->collation = 'utf8_general_mysql500_ci';
+            $table->charset = 'utf8';
+            $table->smallIncrements('id');
+            $table->string('category',25)->collation('utf8_general_mysql500_ci');
+            $table->string('tag_name',50)->collation('utf8_general_mysql500_ci')->index();
             $table->timestamps();
         });
     }

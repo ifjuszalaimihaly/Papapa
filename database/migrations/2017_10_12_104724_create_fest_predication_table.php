@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateFestPredicationTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('fest_predication', function (Blueprint $table) {
             $table->collation = 'utf8_general_mysql500_ci';
             $table->charset = 'utf8';
-            $table->increments('id');
-            $table->string('name')->collation('utf8_general_mysql500_ci');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->rememberToken();
+            $table->mediumIncrements('id');
+            $table->unsignedMediumInteger('predication_id');
+            $table->unsignedMediumInteger('fest_id');
+            $table->timestamp('written_at')->collation('utf8_general_mysql500_ci');
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('fest_predication');
     }
 }
