@@ -7,6 +7,14 @@
         <div class="navbar-nav ml-auto">
             <a class="nav-item nav-link active" href="#section1">link1</a>
             <a class="nav-item nav-link" href="#section2">link2</a>
+            <a href="{{ route('logout') }}"
+               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                Logout
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+            </form>
         </div>
     </div>
 </nav>
