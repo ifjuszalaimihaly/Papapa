@@ -18,8 +18,8 @@ class CreateFestsTable extends Migration
             $table->charset = 'utf8';
             $table->mediumIncrements('id');
             $table->unsignedSmallInteger('fest_group_id')->nullable()->index();
-            $table->string('fest_name', 50)->collation('utf8_general_mysql500_ci')->index();
-            $table->string('fest_name_another', 50)->nullable()->collate('utf8_general_mysql500_ci')->index();
+            $table->string('fest_name', 100)->collation('utf8_general_mysql500_ci')->index();
+            $table->string('fest_name_another', 100)->nullable()->collate('utf8_general_mysql500_ci')->index();
             $table->string('fest_name_latin', 50)->nullable()->collate('utf8_general_mysql500_ci')->index();
             $table->timestamps();
         });
