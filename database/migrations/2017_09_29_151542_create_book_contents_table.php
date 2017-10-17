@@ -20,7 +20,8 @@ class CreateBookContentsTable extends Migration
             $table->unsignedSmallInteger('book_id');
             $table->unsignedSmallInteger('bible_translation_id');
             $table->unsignedSmallInteger('chapter');
-            $table->mediumText('versicle')->collation('utf8_general_mysql500_ci');
+            $table->unsignedSmallInteger('versicle');
+            $table->mediumText('content')->collation('utf8_general_mysql500_ci');
             $table->timestamps();
         });
     }

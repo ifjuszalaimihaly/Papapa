@@ -29,6 +29,8 @@ Route::group(['prefix' => 'admin'],function (){
     Route::post('password/reset', 'Auth\ResetPasswordController@reset');
     //Route::resource('predication','PredicationController');
     Route::get('/home', 'HomeController@index')->name('home');
+
+    Route::resource('predication', 'PredicationController');
 });
 
 

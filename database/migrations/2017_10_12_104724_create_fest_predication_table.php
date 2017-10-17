@@ -17,7 +17,7 @@ class CreateFestPredicationTable extends Migration
             $table->collation = 'utf8_general_mysql500_ci';
             $table->charset = 'utf8';
             $table->mediumIncrements('id');
-            $table->unsignedMediumInteger('predication_id');
+            $table->unsignedMediumInteger('predication_id')->nullable();
             $table->unsignedMediumInteger('fest_id');
             $table->timestamp('written_at')->collation('utf8_general_mysql500_ci');
             $table->timestamps();
