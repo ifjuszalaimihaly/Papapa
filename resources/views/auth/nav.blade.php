@@ -5,12 +5,17 @@
     <a class="navbar-brand" href="#">WELCOME</a>
     <div class="navbar-collapse collapse" id="navigation-menu">
         <div class="navbar-nav ml-auto">
-            <a class="nav-item nav-link active" href="#section1">link1</a>
-            <a class="nav-item nav-link" href="#section2">link2</a>
-            <a href="{{ route('logout') }}"
-               onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                Logout
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Prédikációk
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="{{ route('predication.index') }}">Listázás</a>
+                    <a class="dropdown-item" href="{{ route('predication.create') }}">Létrehozás</a>
+                </div>
+            </li>
+            <a class="nav-item nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                Kijelentkezés
             </a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 {{ csrf_field() }}
