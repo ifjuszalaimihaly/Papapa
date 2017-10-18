@@ -2,7 +2,7 @@
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navigation-menu" aria-controls="navigation-menu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="#">WELCOME</a>
+    <a class="navbar-brand" href="#">Bejelentkezve {{Auth::user()->name}}</a>
     <div class="navbar-collapse collapse" id="navigation-menu">
         <div class="navbar-nav ml-auto">
             <li class="nav-item dropdown">
