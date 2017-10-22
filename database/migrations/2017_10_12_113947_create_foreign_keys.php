@@ -13,7 +13,7 @@ class CreateForeignKeys extends Migration
      */
     public function up()
     {
-        Schema::table('predications',function (Blueprint $table){
+        Schema::table('predication',function (Blueprint $table){
             $table->foreign('book_id')->references('id')->on('books');
         });
         Schema::table('books',function (Blueprint $table){
@@ -24,14 +24,14 @@ class CreateForeignKeys extends Migration
         });
         Schema::table('predication_tag',function (Blueprint $table){
             $table->foreign('tag_id')->references('id')->on('tags');
-            $table->foreign('predication_id')->references('id')->on('predications');
+            $table->foreign('predication_id')->references('id')->on('predication');
         });
         Schema::table('book_contents',function (Blueprint $table){
             $table->foreign('book_id')->references('id')->on('books');
             $table->foreign('bible_translation_id')->references('id')->on('bible_translations');
         });
         Schema::table('fest_predication',function (Blueprint $table){
-            $table->foreign('predication_id')->references('id')->on('predications');
+            $table->foreign('predication_id')->references('id')->on('predication');
             $table->foreign('fest_id')->references('id')->on('fests');
         });
         Schema::table('fest_alternative_names',function (Blueprint $table){
@@ -46,7 +46,7 @@ class CreateForeignKeys extends Migration
      */
     public function down()
     {
-        Schema::table('predications',function (Blueprint $table){
+        Schema::table('predication',function (Blueprint $table){
             $table->dropForeign(['book_id']);
         });
         Schema::table('books', function (Blueprint $table){

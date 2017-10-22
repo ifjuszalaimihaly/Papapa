@@ -13,7 +13,7 @@ class CreatePredicationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('predications', function (Blueprint $table) {
+        Schema::create('predication', function (Blueprint $table) {
             $table->collation = 'utf8_general_mysql500_ci';
             $table->charset = 'utf8';
             $table->mediumIncrements('id');
@@ -37,6 +37,6 @@ class CreatePredicationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('predications');
+        Schema::dropIfExists('predication');
     }
 }

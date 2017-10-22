@@ -14,11 +14,14 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    @include('auth.nav')
+    @if(Auth::check())
+        @include('auth.nav')
+    @endif
     @yield('content')
 
     <!-- Scripts -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>
+    @yield('scripts')
 </body>
 </html>

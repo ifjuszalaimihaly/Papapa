@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Book;
+
 class PredicationController extends Controller
 {
 
@@ -19,7 +21,7 @@ class PredicationController extends Controller
      */
     public function index()
     {
-        return view('auth/predications/index');
+        return view('auth.predication.index');
     }
 
     /**
@@ -29,7 +31,8 @@ class PredicationController extends Controller
      */
     public function create()
     {
-        //
+        $books = Book::all(['id','book_name','book_name_short']);
+        return view('auth.predication.create')->withBooks($books);
     }
 
     /**
