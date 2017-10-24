@@ -31,6 +31,8 @@ Route::group(['prefix' => 'admin'],function (){
     Route::get('/home', 'HomeController@index')->name('home');
 
     Route::resource('predication', 'PredicationController');
+    Route::resource('fest','FestController');
+    Route::resource('festpredication','FestPredicationController');
 });
 
 
